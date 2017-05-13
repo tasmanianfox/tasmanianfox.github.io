@@ -25,7 +25,16 @@ app.controller('MainController', function($scope) {
 });
 
 app.controller('JavascriptsHashController', function($scope) {
+  $scope.input = '';
+  $scope.hashes = {
+    md5: '',
+    sha1: ''
+  }
 
+  $scope.recalculateHashes = function() {
+    $scope.hashes.md5 = hex_md5($scope.input);
+    $scope.hashes.sha1 = sha1($scope.input);
+  }
 });
 
 app.controller('JavascriptsRsaController', function($scope) {
