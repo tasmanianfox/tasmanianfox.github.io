@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Unix timestamp converter</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="inputTimestamp" class="col-sm-2 control-label">Unix Timestamp</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputTimestamp" ng-model="timestamp" ng-change="timestampToDateTime()">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputDateTime" class="col-sm-2 control-label">Date and Time</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputDateTime" ng-model="datetime" ng-change="dateTimeToTimestamp()">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputFormat" class="col-sm-2 control-label">Format</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputFormat" ng-model="format" ng-change="timestampToDateTime()">
+							<p>Please use the format described in Moment.js docs: <a href="https://momentjs.com/docs/" target="_blank">https://momentjs.com/docs/</a></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- <div class="col-lg-6">
+				<div id="datepicker"></div>
+				<input type="hidden" id="my_hidden_input">
+			</div> -->
+		</div>
+	</div>
+</div>

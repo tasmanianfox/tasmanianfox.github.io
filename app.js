@@ -9,9 +9,9 @@ app.config(function($routeProvider) {
         templateUrl : "views/javascripts_hash.html",
 		controller: 'JavascriptsHashController'
     })
-    .when("/javascripts/rsa", {
-        templateUrl : "views/javascripts_rsa.html",
-		controller: 'JavascriptsRsaController'
+    .when("/javascripts/unixtimestamp", {
+        templateUrl : "views/javascripts_unixtimestamp.html",
+		controller: 'JavascriptsUnixTimestampController'
     })
     .when("/javascripts/password", {
         templateUrl : "views/javascripts_password.html",
@@ -37,8 +37,22 @@ app.controller('JavascriptsHashController', function($scope) {
   }
 });
 
-app.controller('JavascriptsRsaController', function($scope) {
+app.controller('JavascriptsUnixTimestampController', function($scope) {
+  $scope.timestamp = moment().format('X');
+  $scope.datetime = null;
+  $scope.format = 'YYYY-MM-DD HH:mm:ss'
 
+  $scope.timestampToDateTime = function() {
+    $scope.datetime = moment.unix($scope.timestamp).format($scope.format);
+  }
+
+  $scope.dateTimeToTimestamp = function() {
+    $scope.timestamp = moment($scope.datetime, $scope.fprmat).format('X');
+  }
+
+  $scope.$on('$viewContentLoaded', function() {
+    $scope.timestampToDateTime();
+  });
 });
 
 app.controller('JavascriptsPasswordController', function($scope) {
