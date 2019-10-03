@@ -1,26 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Switch, Router, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import './index.css';
-import App from './App';
 import browserHistory from './history';
 import * as serviceWorker from './serviceWorker';
 
+import reducer from './reducers';
+import Home from './components/Home';
+
 const middleware = [];
-const reducers = [];
 const composeEnhancers = composeWithDevTools({});
 
 
 const store = createStore(
-    combineReducers({
-        ...reducers,
-        routing: routerReducer
-    }),
+    reducer,
     composeEnhancers(
         applyMiddleware(...middleware),
     ),
@@ -32,14 +30,14 @@ ReactDOM.render(
   <Provider store={store}>
         <Router history={history}>
             <Switch>
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={props => <Home {...props} />} />
+                <Route exact path="/password_generator" component={props => <Home {...props} />} />
+                <Route exact path="/hash_generator" component={props => <Home {...props} />} />
+                <Route exact path="/timestamp_converter" component={props => <Home {...props} />} />
             </Switch>
         </Router>
   </Provider>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
