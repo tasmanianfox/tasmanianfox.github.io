@@ -51,7 +51,7 @@ class Layout extends React.Component {
   onChildMenuItemClick(code) {
     return e => {
       this.props.menuChildItemSelected();
-      this.props.history.push(`/${code}`);
+      this.props.history.push(`/scripts/${code}`);
     };
   }
 
@@ -84,19 +84,9 @@ class Layout extends React.Component {
             isActive={'scripts' === this.props.activeMenu}
             onMenuItemClick={this.onChildMenuItemClick}
           />
-          {/* <Menu
-            id="menu-scripts"
-            keepMounted
-            open={true}
-            // anchorEl={anchorEl}
-            onClose={this.onMenuItemClick}
-          >
-            {/* <MenuItem onClick={this.onMenuItemClick}>Profile</MenuItem>
-            <MenuItem onClick={this.onMenuItemClick}>My account</MenuItem>
-            <MenuItem onClick={this.onMenuItemClick}>Logout</MenuItem> 
-          </Menu> */}
         </Box>
         <div>
+          <h1>{this.props.header}</h1>
           { this.props.children }
         </div>
       </Container>
@@ -106,6 +96,7 @@ class Layout extends React.Component {
 
 Layout.propTypes = {
   activeMenu: propTypes.string,
+  header: propTypes.string,
   menuChildItemSelected: propTypes.func.isRequired,
   menuMainItemSelected: propTypes.func.isRequired,
 };

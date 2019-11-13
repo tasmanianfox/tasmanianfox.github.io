@@ -16,6 +16,7 @@ class Home extends React.Component {
   render() {
     return <Layout
 		history={this.props.history}
+		header="Home page"
 	>
         Welcome!
     </Layout>;

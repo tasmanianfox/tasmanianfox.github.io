@@ -31,9 +31,9 @@ ReactDOM.render(
         <Router history={history}>
             <Switch>
                 <Route exact path="/" component={props => <Home {...props} />} />
-                <Route exact path="/password_generator" component={props => <Home {...props} />} />
-                <Route exact path="/hash_generator" component={props => <Home {...props} />} />
-                <Route exact path="/timestamp_converter" component={props => <Home {...props} />} />
+                <Route exact path="/scripts/password_generator" component={props => <Home {...props} />} />
+                <Route exact path="/scripts/hash_generator" component={props => <Home {...props} />} />
+                <Route exact path="/scripts/timestamp_converter" component={props => <Home {...props} />} />
             </Switch>
         </Router>
   </Provider>,
